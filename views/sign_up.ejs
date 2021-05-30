@@ -1,0 +1,184 @@
+<link rel="stylesheet" type="text/css" href="/css/sign_up.css" />
+
+<!-- <h1> Sign Up </h1>
+
+<form method = "post" action = "/users/create-user" >
+    <table>
+        <tr>
+            <th>
+                <label>
+                    Name
+                </label>
+            </th>
+            <td>
+                <input type="text" placeholder="" name="name" required>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <label>
+                    E-mail
+                </label>
+            </th>
+            <td>
+                <input type="email" placeholder="abc@gmail.com" name="email" required>
+            </td>
+        </tr>
+        
+        <tr>
+            <th>
+                <label>
+                    Password
+                </label>
+            </th>
+            <td>
+                <input type="password" placeholder="" name="password" required> 
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <label>
+                    Confirm Password
+                </label>
+            </th>
+            <td>
+                <input type="password" placeholder="" name="confirm_password" required> 
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <select name="security_ques">
+                    <option> Name of your first best friend ? </option>
+                    <option> What is your lucky number ? </option>
+                    <option> What primary school did you attend? </option>
+                </select>
+            </th>
+            <td>
+                <input type="text" placeholder="" name="security_ans" required>
+            </td>
+            
+        </tr>
+        
+
+    </table>
+    <button type="submit"> Submit </button>
+
+</form>
+
+<p>
+    <a href="/users/auth/google"> Google Sign Up /Sign In</a>
+</p> -->
+
+<div class="container">
+  <div class="d-flex justify-content-center h-100">
+    <div class="card">
+      <div class="card-header">
+        <h3>Sign Up</h3>
+        <div class="d-flex justify-content-end social_icon">
+          <span
+            ><a href="/users/auth/google"
+              ><i class="fab fa-google-plus-square"></i></a
+          ></span>
+          <span
+            ><a href="/users/auth/github"
+              ><i class="fab fa-github-square"></i></a
+          ></span>
+        </div>
+      </div>
+      <div class="card-body">
+        <form method="post" action="/users/create-user">
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-user"></i></span>
+            </div>
+            <input
+              type="text"
+              name="name"
+              class="form-control"
+              placeholder="Your Name"
+            />
+          </div>
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"
+                ><i class="fas fa-envelope"></i
+              ></span>
+            </div>
+            <input
+              type="text"
+              name="email"
+              class="form-control"
+              placeholder="Email"
+            />
+          </div>
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-key"></i></span>
+            </div>
+            <input
+              type="password"
+              name="password"
+              class="form-control"
+              placeholder="Password"
+            />
+          </div>
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-key"></i></span>
+            </div>
+            <input
+              type="password"
+              name="confirm_password"
+              class="form-control"
+              placeholder="Confirm Password"
+            />
+          </div>
+
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"
+                ><i class="fas fa-question-circle"></i
+              ></span>
+            </div>
+            <div>
+              <select class="form-control" name="security_ques" placeholder="">
+                <option disabled selected>Select a Security Question</option>
+                <option>Name of your first best friend ?</option>
+                <option>What is your lucky number ?</option>
+                <option>What primary school did you attend?</option>
+              </select>
+            </div>
+          </div>
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"
+                ><i class="fas fa-keyboard"></i
+              ></span>
+            </div>
+
+            <input
+              type="text"
+              name="security_ans"
+              class="form-control"
+              placeholder="Question Ans"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <input
+              type="submit"
+              value="Signup"
+              class="btn float-right login_btn"
+            />
+          </div>
+        </form>
+      </div>
+      <div class="card-footer">
+        <div class="d-flex justify-content-center links">
+          Already have an account?<a href="sign-in">Sign In</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

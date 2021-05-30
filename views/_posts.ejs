@@ -1,0 +1,88 @@
+<!-- <link rel="stylesheet" href="/css/comment.css"> -->
+
+<li id="post-<%= post._id %>">
+  <div
+    class="offset-md-1 col-lg-10 shadow-lg mb-5 p-3 bg-body rounded"
+    style="
+      border-radius: 5%;
+      background-color: rgb(165 126 51 / 84%);
+    "
+  >
+    <p><h4><span class="mr-2"><%= post.title %></span>
+     <!-- CHANGE :: display the likes of this post, if the user is logged in, then show the link to toggle likes, else, just show the count -->
+     
+     <!-- study about the data attribute -->
+     <small class="" style="margin-left: 12em;" >
+       <% if (locals.user){ %>
+       <a
+         class="toggle-like-button"
+         data-likes="<%= post.likes.length %>"
+         href="/likes/toggle/?id=<%=post._id%>&type=Post"
+       >
+         <span><%= post.likes.length %> <i class="fas fa-thumbs-up"></i></span>
+       </a>
+       <% }else{ %> 
+         <%= post.likes.length %> 
+         <i class="fas fa-thumbs-up"></i> 
+         <% } %>
+     </small>
+     <% if( locals.user && post.user.id == locals.user.id){ %>
+      <small class="ml-3 ">
+        <a class="delete-post-icon" href="/posts/delete/<%= post._id %>">
+          <i class="fas fa-trash"></i>
+          <!-- <i class="fas fa-trash" aria-hidden="true"></i> -->
+        </a>
+      </small>
+    </h4>
+    </p>
+    <% } %>
+    
+    <h6 class="ml-4"><%= post.content %></h6>
+
+    <small class="ml-4">
+      Posted By : <%= post.user.name %> 
+     
+    </small><br>
+
+   
+    &nbsp; 
+
+  
+    <div class="ml-3 mt-1">
+      <% if(locals.user) { %>
+      <form
+        id="post-<%= post._id %>-comments-form"
+        action="/comments/create"
+        method="post"
+        class="m-0 p-0 "
+        style="background: none; display: inline; "
+      >
+        <input type="hidden" value="<%= post._id %>" name="post" />
+        <textarea
+          rows="1"
+          cols="3"
+          placeholder="Add Comment"
+          name="content"
+          required
+          class="form-control bg-light"
+          style="border-bottom: 1px solid silver; background: whitesmoke; display: inline; width: 60%; "
+        ></textarea
+        >
+        
+
+        <input type="submit" value="Add Comment" class="btn btn-primary mt-2">
+      </form>
+      <% } %>
+    </div>
+
+
+
+    <div id="post-comments-<%=post._id%>">
+      <ul>
+        <% for (let comment of post.comments) { %>
+        <!-- name of file , additional info or objects needed -->
+        <%- include('_comments' , {comment : comment}) %> <% } %>
+      </ul>
+    </div>
+  </div>
+</li>

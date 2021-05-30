@@ -1,0 +1,139 @@
+<!-- variable body part of layout -->
+
+<link rel="stylesheet" type="text/css" href="/css/home.css" />
+
+<div id="container">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2 mt-5 mb-5" style="border-right: 1px solid black">
+        <section id="all-users" class="mt-5">
+          <div
+            class="
+              offset-md-1
+              col-lg-10
+              shadow-lg
+              mb-5
+              ml-2
+              p-3
+              bg-body
+              rounded
+            "
+            style="
+              border-radius: 5%;
+              height: 80%;
+
+              background-color: rgba(245, 222, 179, 0.835);
+            "
+          >
+            <h2>All Users</h2>
+            <div>
+              <ul id="all-users">
+                <% for( let user of all_users){ %>
+                <li>
+                  <a href="/users/profile/<%= user.id %>"> <%= user.name %> </a>
+                </li>
+                <% } %>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="col-md-8 mt-5 mb-5" style="border-right: 1px solid black">
+        <div id="feed-posts" style="background-color: rgb(79 49 25 / 50%);; width : 90%;  margin : auto">
+
+        
+        <section >
+          <h2>Post</h2>
+
+          <div id="post-form" class="ml-5">
+            <!-- locals.user work , only user wont . It shows the form only if a  user is signed in -->
+            <% if(locals.user){ %>
+            <form id="create-post" action="/posts/create" method="post">
+              <div class="row ml-5">
+                <div class="col-md-10 m-2" style="width: 100%">
+                  <label class="form-label">Post Title</label>
+                  <input
+                    type="text"
+                    name="title"
+                    class="form-control"
+                    placeholder="Title Of Post"
+                    required
+                  />
+                </div>
+                <div class="col-md-10" style="width: 100%">
+                  <label class="form-label m-1">Post Content</label>
+                  <textarea
+                    name="content"
+                    rows="6"
+                    cols="80"
+                    placeholder="Type Content Here"
+                    class="form-control m-1"
+                    required
+                  >
+                  </textarea>
+                </div>
+              </div>
+
+              <br />
+              <button
+                type="submit"
+                class="btn btn-info"
+                style="margin-left: 40%"
+              >
+                Post
+              </button>
+            </form>
+            <% } %>
+          </div>
+
+          <div id="all-posts">
+            <ul id="post-ul">
+              <% posts.forEach(function(post) { %>
+              <!-- name of file , additional info or objects needed -->
+              <%- include('_posts', {post: post}); %> <% }); %>
+            </ul>
+          </div>
+        </section>
+      </div>
+      </div>
+      <div class="col-md-2 mt-5">
+        <section id="friends" class="mt-5">
+          <div
+            class="offset-md-1 col-lg-10 shadow-lg mb-5 p-3 bg-body rounded"
+            style="
+              border-radius: 5%;
+              height: 80%;
+
+              background-color: rgba(245, 222, 179, 0.835);
+            "
+          >
+            <h2>Following</h2>
+            <div>
+              <ul>
+                <% for( let friend of friends.follow){ %>
+                <li>
+                  <a href="/users/profile/<%= friend.to_user.id %>">
+                    <%= friend.to_user.name %>
+                  </a>
+                </li>
+                <% } %>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/js/home_comments.js"></script>
+<script src="/js/home_posts.js"></script>
+
+<!-- CHANGE :: import the script file for toggle likes, also run it over for the already present posts and comments on the page -->
+<script src="/js/toggle_likes.js"></script>
+<script>
+  $(".toggle-like-button").each(function () {
+    let self = this;
+    let toggleLike = new ToggleLike(self);
+  });
+</script>

@@ -1,0 +1,83 @@
+<!-- this wrapper page name has to be "layout.ejs" only for express to recognise it as basic layout -->
+
+<!-- wrapper for all other views, 
+    contains header & footer  (partials added from other files)
+    & body - variable , from view rendered
+-->
+
+<html>
+  <head>
+    <title><%= title %></title>
+
+    <!-- for flash messages as notifications ,,using noty js cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js "></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css"
+    />
+
+    <!-- bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+
+    <!-- jquery (includes ajax) , noty dont use jquery, so after-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- css file -->
+    <link rel="stylesheet" type="text/css" href="/css/layout.css" />
+    <link rel="stylesheet" type="text/css" href="/css/header.css" />
+    <link rel="stylesheet" type="text/css" href="/css/footer.css" />
+
+    <!-- font awesome kit -->
+    <script
+      src="https://kit.fontawesome.com/7b206e8634.js"crossorigin="anonymous"
+    ></script>
+
+    <!-- place style file for body here -->
+    <%- style %>
+  </head>
+  <body>
+    <!-- header partial , layouts in ejs  has this syntax -->
+    <%- include('_header'); %>
+
+    <!-- flash messages from previous function , if its not empty , (check middleware)-->
+
+    <!-- variable part from other views -->
+    <main id="layout-main"><%- body %></main>
+
+    <!-- footer partial -->
+    <%- include('_footer'); %>
+
+    <!-- place script file for body here -->
+    <%- script %>
+
+    <!-- using flash messages using noty js -->
+    <script>
+        <% if(flash.success && flash.success.length > 0){ %>
+              new Noty({
+                type : "success",
+                text : "<%= flash.success %>",
+                layout : "topRight",
+                theme : "relax",
+                timeout : 1500
+              }).show();
+        <% } %>
+
+        <% if(flash.error && flash.error.length > 0){ %>
+              new Noty({
+                type : "error",
+                text : "<%= flash.error %>",
+                layout : "topRight",
+                theme : "relax",
+                timeout : 1500
+              }).show();
+        <% } %>
+    </script>
+
+
+  </body>
+</html>

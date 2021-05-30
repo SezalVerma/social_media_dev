@@ -1,0 +1,291 @@
+<link rel="stylesheet" type="text/css" href="/css/profile.css" />
+
+<!-- <img src="<%=user.avatar%>" alt="<%=user.name%>" width="100">  -->
+
+<!-- <img src="<%=user.avatar%>" alt="<%=user.name%>" width="100">  -->
+
+<!-- <% if( user_profile.id == user.id){ %> -->
+<!-- if user opens his own profile , can update info -->
+<!-- encryption type -> for different type of data -->
+<!-- <img src="<%=user.avatar%>" alt="<%=user.name%>" width="100" /> -->
+
+<!-- <form
+  method="POST"
+  action="/users/profile-update/<%= user.id %>"
+  enctype="multipart/form-data"
+>
+  <table>
+    <tr>
+      <th>
+        <label> User Name </label>
+      </th>
+      <td>
+        <input
+          type="text"
+          value="<%= user.name %>"
+          name="name"
+          placeholder="<%= user.name%>"
+          required
+        />
+      </td>
+    </tr>
+
+    <tr>
+      <th>
+        <label> Profile Picture </label>
+      </th>
+      <td>
+        <input type="file" name="avatar" placeholder="Profile Pic" />
+      </td>
+    </tr>
+    <tr>
+      <th>Bio</th>
+      <td>
+        <% if( ! user.about ) { %>
+        <textarea
+          name="about"
+          placeholder="Let others know something about you."
+          rows="5"
+          cols="50"
+        ></textarea>
+        <% }else { %>
+        <textarea name="about" value="<%= user.about %>" rows="5" cols="50">
+ <%= user.about %> </textarea
+        >
+        <% } %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <label> Existing Password </label>
+      </th>
+      <td>
+        <input
+          type="password"
+          name="password"
+          placeholder="Existing Password"
+          required
+        />
+      </td>
+    </tr>
+  </table>
+  <button type="submit">UPDATE</button>
+</form> -->
+
+<!-- <% } else { %>
+<!-- if user opens others profile -->
+<!-- <img src="<%=user_profile.avatar%>" alt="<%=user_profile.name%>" width="100" />
+<p><%= user_profile.name %></p>
+<p><%= user_profile.email %></p>
+<p><%= user_profile.about %></p> -->
+
+<!-- <% } %> -->
+-->
+<!-- ---------------------------------------------------------------------------------------------------------------------- -->
+<!-- new Profile -->
+
+<div class="row py-5 px-4">
+  <div class="col-md-10 mx-auto">
+    <!-- Profile top -->
+    <div class="bg-custom shadow rounded overflow-hidden" >
+      <div class="px-4 pt-0 pb-4 cover">
+        <div class="media profile-head">
+          <div class="profile mt-2">
+            <img
+              src="<%=user_profile.avatar%>"
+              alt="<%=user_profile.name%>"
+              width="140"
+              class="rounded m-2 img-thumbnail"
+            />
+          </div>
+          <div class="media-body text-white">
+            <div class="px-3 py-3">
+              <div class="p-5 rounded shadow-sm bg-custom1 row" );">
+                <div class="col-md-5" style="border-right: 1px solid black">
+                  <h4 class="font-italic mt-0 mb-0 text-dark h2">
+                    <%=user_profile.name%>
+                  </h4>
+
+                  <p class="font-italic mb-0 text-dark h4">
+                    <%=user_profile.email%>
+                  </p>
+                </div>
+
+                <div class="col-md-6 ml-4">
+                  <%if(user_profile.about == null){%>
+                  <p
+                    class="font-italic mb-0 text-dark h5"
+                    style="text-align: justify; text-justify: auto"
+                  >
+                    Hello, I am <%=user_profile.name%> and I am awesome.
+                  </p>
+                  <% } else { %>
+                  <p
+                    class="font-italic mb-0 text-dark h5"
+                    style="text-align: justify; text-justify: auto"
+                  >
+                    <%=user_profile.about%>
+                  </p>
+                  <%}%>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <% if( user_profile.id == user.id){ %>
+          <div class="col-md-2 b bg-transparent justify-content-start">
+            <a
+              href="#"
+              onclick="myFunction()"
+              id="edit"
+              class="btn btn-outline-dark btn-sm btn-block mt-2 ml-1 mb-2"
+              >Edit profile</a
+            >
+          </div>
+          <%} else{%>
+          <div class="offset-md-2 b bg-transparent justify-content-start"></div>
+          <%}%>
+
+          <div class="col-md-2 bg-transparent p-2">
+            <% if( user_profile.id != user.id){ %>
+            <div>
+              <% if( follow == false ) { %>
+              <a href="/users/follow?to=<%= user_profile.id %>">
+                <i class="fas fa-user-plus"></i> Follow
+              </a>
+              <% } else { %>
+              <a href="/users/unfollow?to=<%= user_profile._id %>">
+                <i class="fas fa-user-minus"></i> UnFollow
+              </a>
+              <% } %>
+            </div>
+            <%}%>
+          </div>
+          <!-- <div class="offset-md-3"></div> -->
+          <div
+            class="
+             col-md-6
+              bg-transparent
+              p-1
+              d-flex
+              justify-content-end
+              text-center
+            "
+          >
+            <ul class="list-inline mb-0" style="display: inline;">
+              
+              <li class="list-inline-item">
+                <h5 class="font-weight-bold mb-0 d-block"> <%= count_posts %> </h5>
+                <small class="text-muted">
+                  <i class="fas fa-image mr-1"></i>Posts</small
+                >
+              </li>
+              <li class="list-inline-item">
+                <h5 class="font-weight-bold mb-0 d-block"> <%= count_followers %> </h5>
+                <small class="text-muted">
+                  <i class="fas fa-user mr-1"></i>Followers</small
+                >
+              </li>
+              <li class="list-inline-item">
+                <h5 class="font-weight-bold mb-0  d-block"> <%= count_following %> </h5>
+                <small class="text-muted">
+                  <i class="fas fa-user mr-1"></i>Following</small
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Edit Profile form -->
+        <div id="editpro" style="display: none">
+          <div style="display: flex; width: 100%">
+            <form
+              method="POST"
+              action="/users/profile-update/<%= user.id %>"
+              enctype="multipart/form-data"
+            >
+              <div style="width: 100%">
+                <p>USER NAME</p>
+                <input
+                  type="text"
+                  value="<%= user.name %>"
+                  name="name"
+                  placeholder="<%= user.name%>"
+                  required
+                  autofocus
+                />
+              </div>
+              <div style="width: 100%">
+                <p>PROFILE PIC</p>
+                <input type="file" name="avatar" placeholder="Profile Pic" />
+              </div>
+              <div style="width: 100%">
+                <p>BIO</p>
+                <% if( ! user.about ) { %>
+                <textarea
+                  name="about"
+                  placeholder="Let others know something about you."
+                  rows="5"
+                  cols="30"
+                  class="form-control"
+                ></textarea>
+                <% }else { %>
+                <textarea
+                  name="about"
+                  value="<%= user.about %>"
+                  rows="5"
+                  cols="30"
+                  class="form-control"
+                >
+             <%= user.about %> </textarea
+                >
+                <% } %>
+              </div>
+              <!-- <div style="width: 100%">
+                <p>PASSWORD</p>
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="Existing Password"
+                  required
+                />
+              </div> -->
+
+              <button type="submit" class="btn btn-primary">UPDATE</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- User Post -->
+        <div class="py-4 px-4">
+          <div class="mb-3">
+            <hr class="bg-dark" />
+            <h4 class="mb-0 text-center">Recent Posts</h4>
+          </div>
+          <div class="row">
+            <div id="all-posts" class="col-md-11">
+              <ul id="post-ul" style="list-style: none">
+                <% posts.forEach(function(post) { %>
+                <!-- name of file , additional info or objects needed -->
+                <%- include('_posts', {post: post}); %> <% }); %>
+              </ul>
+            </div>
+            <div class="offset-md-1"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/js/home_comments.js"></script>
+<script src="/js/home_posts.js"></script>
+<script src="/js/toggle_likes.js"></script>
+<script src="/js/profile.js"></script>
+<script>
+  $(".toggle-like-button").each(function () {
+    let self = this;
+    let toggleLike = new ToggleLike(self);
+  });
+</script>

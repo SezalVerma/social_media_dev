@@ -1,0 +1,93 @@
+body {
+  background-image: url("https://getwallpapers.com/wallpaper/full/e/4/6/432360.jpg");
+  background-size: cover;
+  background-repeat: repeat-y;
+  height: 88%;
+  font-family: "Numans", sans-serif;
+}
+
+input:focus {
+  outline: none;
+}
+
+form {
+  width: 35%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 50px;
+  background: #726143a6;
+  border-radius: 5px;
+  position: relative;
+  font-family: "Libre Franklin", sans-serif;
+}
+
+form > div {
+  float: left;
+  margin-bottom: 30px;
+}
+
+form > div > p {
+  font-size: 12px;
+  margin-bottom: 3px;
+}
+
+form > div > input {
+  font-size: 12px;
+  letter-spacing: 1px;
+  padding: 5px;
+  border: 0;
+  background: whitesmoke;
+  border-bottom: 1px solid silver;
+  width: 100%;
+  color: gray;
+}
+
+form > p:last-of-type {
+  text-align: center;
+  padding-top: 50px;
+  display: table;
+  width: 100%;
+  color: white;
+}
+
+form > p:last-of-type > a {
+  cursor: pointer;
+  border: 0;
+  padding: 10px 25px;
+  background: silver;
+  border-radius: 28px;
+  font-size: 12px;
+}
+
+form > a:last-of-type {
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+  font-size: 10px;
+  letter-spacing: 1px;
+  font-style: italic;
+}
+
+.term {
+  padding-top: 40px;
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.term > i {
+  cursor: pointer;
+  width: 20px;
+}
+
+.term > span {
+  font-size: 12px;
+}
+
+.bg-custom {
+  background-color: rgba(245, 222, 179, 0.835);
+}
+
+.bg-custom1 {
+  background-color: rgba(156, 114, 86, 0.568);
+}

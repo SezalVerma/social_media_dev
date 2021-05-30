@@ -1,0 +1,38 @@
+<link rel="stylesheet" href="/css/comment.css" />
+
+<li id="comment-<%= comment._id %> ">
+  <div>
+    <h6>
+      <span class="mr-2"> <%= comment.content %></span>
+      <small class="mr-3" style="margin-left: 4em">
+        <% if (locals.user){ %>
+        <a
+          class="toggle-like-button"
+          data-likes="<%= comment.likes.length %>"
+          href="/likes/toggle/?id=<%=comment._id%>&type=Comment"
+        >
+          <%= comment.likes.length %> <i class="fas fa-thumbs-up"></i>
+        </a>
+        <% }else{ %> <%= comment.likes.length %>
+        <i class="fas fa-thumbs-up"></i> <% } %>
+      </small>
+      <% if(locals.user) { %> <% if (locals.user.id == comment.user.id ||
+      locals.user.id == post.user.id) { %>
+      <small class="">
+        <a
+          class="delete-comment-icon"
+          href="/comments/delete/?commentId=<%= comment.id %>&&postUser=<%= post.user.id%>"
+        >
+          <i class="fas fa-trash"></i>
+        </a>
+      </small>
+
+      <% } %> <% } %>
+    </h6>
+  </div>
+  <small>By -<%= comment.user.name %></small>
+
+  <!-- CHANGE :: display the likes of this comment, if the user is logged in, then show the link to toggle likes, else, just show the count -->
+  <!-- study about the data attribute -->
+</li>
+<!-- <script src="/js/comment.js"></script> -->

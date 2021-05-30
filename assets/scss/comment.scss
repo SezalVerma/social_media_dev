@@ -1,0 +1,95 @@
+
+  .panel-google-plus > .panel-body > .panel-google-plus-image {
+    display: block;
+    text-align: center;
+    background-color: whitesmoke;
+    border: 1px solid #d9d9d9;
+  }
+  .panel-google-plus > .panel-body > .panel-google-plus-image > img {
+    max-width: 100%;
+  }
+  .panel-google-plus > .panel-footer {
+    font-size: 14px;
+    font-weight: 700;
+    min-height: 54px;
+  }
+  .panel-google-plus > .panel-footer > .btn {
+    float: left;
+    margin-right: 8px;
+  }
+  .panel-google-plus > .panel-footer > .input-placeholder {
+    display: block;
+    margin-left: 98px;
+    color: #999;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 8px 6px 7px;
+    border: 1px solid #d9d9d9;
+    border-radius: 2px;
+    box-shadow: rgba(0, 0, 0, 0.0470588) 0px 1px 0px 0px;
+  }
+  .panel-google-plus.panel-google-plus-show-comment
+    > .panel-footer
+    > .input-placeholder {
+    display: none;
+  }
+  .panel-google-plus.panel-google-plus-show-comment > .panel-google-plus-comment {
+    display: block;
+  }
+  .panel-google-plus > .panel-google-plus-comment {
+    display: none;
+    padding: 10px 20px 15px;
+    border-top: 1px solid #e5e5e5;
+    background-color: whitesmoke;
+  }
+  .panel-google-plus > .panel-google-plus-comment > .panel-google-plus-textarea {
+    float: right;
+    width: calc(100% - 56px);
+  }
+  .panel-google-plus
+    > .panel-google-plus-comment
+    > .panel-google-plus-textarea
+    > textarea {
+    display: block;
+    /*margin-left: 60px;
+      width: calc(100% - 56px);
+     */
+    width: 100%;
+    background-color: white;
+    border: 1px solid #d9d9d9;
+    box-shadow: rgba(0, 0, 0, 0.0470588) 0px 1px 0px 0px;
+    resize: vertical;
+  }
+  .panel-google-plus
+    > .panel-google-plus-comment
+    > .panel-google-plus-textarea
+    > .btn {
+    margin-top: 10px;
+    margin-right: 8px;
+    width: 100%;
+  }
+  .panel-google-plus .btn {
+    border-radius: 3px;
+  }
+  .panel-google-plus .btn-default {
+    border: 1px solid #d9d9d9;
+    box-shadow: rgba(0, 0, 0, 0.0470588) 0px 1px 0px 0px;
+  }
+  .panel-google-plus .btn-default:hover,
+  .panel-google-plus .btn-default:focus,
+  .panel-google-plus .btn-default:active {
+    background-color: white;
+    border-color: black;
+  }
+  /*.panel-google-plus > .panel-google-plus-comment > img {
+      float: left;
+  }
+  */
+  @media (min-width: 992px) {
+    .panel-google-plus
+      > .panel-google-plus-comment
+      > .panel-google-plus-textarea
+      > .btn {
+      width: auto;
+    }
+  }

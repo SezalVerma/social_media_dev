@@ -1,0 +1,36 @@
+footer {
+//   height: 10%;
+  // background-color: rgb(83, 96, 114);
+  background-color: rgba(134, 85, 66, 0.342);
+  color: white;
+
+  #footer-nav {
+    height: 10%;
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+    #footer-declaration {
+        width : 33%;
+        margin : auto 0px;
+      display: inline-block;
+    }
+    #footer-pagesLinks {
+      display: inline-block;
+      width : 33%;
+      margin-left : 0%;
+      ul {
+          list-style:  none;
+        li {
+          a {
+            color: white;
+            text-decoration: none;
+            font-size: large;
+          }
+        }
+      }
+    }
+  }
+}
